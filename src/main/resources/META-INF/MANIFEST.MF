@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 1
+Bundle-Vendor: Digital Services, Gothenburg University Library
+Bundle-Name: GU Search Form Configuration extension
+Bundle-SymbolicName: se.gu.ub.search.form.config;singleton:=true
+Bundle-Version: 1.0.0
+Require-Bundle: org.nuxeo.ecm.platform.web.common
+Nuxeo-Component: OSGI-INF/search-contentviews-contrib.xml
