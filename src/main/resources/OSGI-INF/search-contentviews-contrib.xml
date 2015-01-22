@@ -6,8 +6,8 @@
 
     <contentView name="default_search">
       <title>label.search.default</title>
-      <translateTitle>false</translateTitle>
-      <showTitle>true</showTitle>
+      <translateTitle>true</translateTitle>
+      <showTitle>false</showTitle>
       <emptySentence>label.content.empty.search</emptySentence>
       <translateEmptySentence>true</translateEmptySentence>
 
@@ -73,6 +73,59 @@
       <flags>
         <flag>SEARCH</flag>
       </flags>
+    </contentView>
+
+    <contentView name="simple_search">
+      <title>label.search.default</title>
+      <translateTitle>true</translateTitle>
+      <showTitle>false</showTitle>
+      <iconPath>/icons/document_listing_icon.png</iconPath>
+
+      <emptySentence>label.content.empty.search</emptySentence>
+      <translateEmptySentence>true</translateEmptySentence>
+
+      <coreQueryPageProvider>
+        <property name="maxResults">DEFAULT_NAVIGATION_RESULTS</property>
+        <property name="coreSession">#{documentManager}</property>
+        <whereClause docType="DefaultSearch">
+          <fixedPart>
+            ecm:mixinType != 'HiddenInNavigation' AND
+            ecm:isCheckedInVersion = 0
+            AND ecm:currentLifeCycleState != 'deleted'
+            AND SORTED_COLUMN IS NOT NULL
+          </fixedPart>
+          <predicate parameter="ecm:fulltext" operator="FULLTEXT">
+            <field schema="default_search" name="ecm_fulltext" />
+          </predicate>
+        </whereClause>
+        <!-- sort column="dc:title" ascending="true" / sort by fulltext relevance -->
+        <pageSize>20</pageSize>
+      </coreQueryPageProvider>
+
+      <searchLayout name="simple_search_layout" />
+
+      <showPageSizeSelector>true</showPageSizeSelector>
+      <useGlobalPageSize>true</useGlobalPageSize>
+      <refresh>
+        <event>documentChanged</event>
+        <event>documentChildrenChanged</event>
+      </refresh>
+      <cacheKey>only_one_cache</cacheKey>
+      <cacheSize>1</cacheSize>
+
+      <resultLayouts>
+        <layout name="document_listing_table" title="document_listing"
+          translateTitle="true" iconPath="/icons/document_listing_icon.png"
+          showCSVExport="true" showSpreadsheet="true" showEditColumns="true" />
+      </resultLayouts>
+
+      <resultColumns>
+        #{searchDocument.cvd.selectedLayoutColumns}
+      </resultColumns>
+
+      <selectionList>CURRENT_SELECTION</selectionList>
+      <actions category="CURRENT_SELECTION_LIST" />
+
     </contentView>
 
     <contentView name="all_saved_searches">
@@ -198,9 +251,6 @@
       <rows>
         <row>
           <widget>default_text_search</widget>
-        </row>
-        <row>
-          <widget>default_coverage_search</widget>
         </row>
       </rows>
     </layout>
