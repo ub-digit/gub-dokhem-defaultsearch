@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<xs:schema targetNamespace="http://www.nuxeo.org/ecm/schemas/defaultsearch/"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:nxs="http://www.nuxeo.org/ecm/schemas/defaultsearch/">
+
+  <xs:include schemaLocation="base.xsd" />
+
+  <xs:element name="ecm_fulltext" type="xs:string" />
+  <xs:element name="ecm_tags" type="nxs:stringList"/>
+  <xs:element name="dc_created_min" type="xs:date" />
+  <xs:element name="dc_created_max" type="xs:date" />
+  <xs:element name="dc_modified_min" type="xs:date" />
+  <xs:element name="dc_modified_max" type="xs:date" />
+  <xs:element name="dc_creator" type="nxs:stringList" />
+  <xs:element name="dc_nature" type="nxs:stringList" />
+  <xs:element name="dc_coverage" type="nxs:stringList" />
+  <xs:element name="dc_subjects" type="nxs:stringList" />
+  <xs:element name="ecm_path" type="nxs:stringList"/>
+  <xs:element name="ecm_collections" type="nxs:stringList"/>
+  <xs:element name="ub_orgs" type="ub:orgList"/>
+  <xs:element name="ub_doctypes" type="ub:doctypeList"/>
+
+  <!-- aggregates field-->
+  <xs:element name="dc_creator_agg" type="nxs:stringList" />
+  <xs:element name="dc_created_agg" type="nxs:stringList" />
+  <xs:element name="dc_modified_agg" type="nxs:stringList" />
+  <xs:element name="dc_nature_agg" type="nxs:stringList" />
+  <xs:element name="dc_subjects_agg" type="nxs:stringList" />
+  <xs:element name="dc_coverage_agg" type="nxs:stringList" />
+  <xs:element name="common_size_agg" type="nxs:stringList" />
+  <xs:element name="ub_doctypes_agg" type="ub:doctypeList" />
+  <xs:element name="ub_orgs_agg" type="ub:orgList" />
+
+</xs:schema>
