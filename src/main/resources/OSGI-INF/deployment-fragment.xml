@@ -3,6 +3,7 @@
 
   <require>org.nuxeo.ecm.platform.lang</require>
   <require>org.nuxeo.ecm.webapp.ui</require>
+  <require>org.nuxeo.search.ui</require>
 
   <install>
     <unzip from="${bundle.fileName}" to="/" prefix="web">
@@ -37,8 +38,7 @@
       from="${bundle.fileName}.tmp/OSGI-INF/l10n/messages_sv_SE.properties"
       to="nuxeo.war/WEB-INF/classes/messages_sv.properties"
       addNewLine="true" />
-
-<append
+    <append
       from="${bundle.fileName}.tmp/OSGI-INF/l10n/messages_it_IT.properties"
       to="nuxeo.war/WEB-INF/classes/messages_it.properties"
       addNewLine="true" />
