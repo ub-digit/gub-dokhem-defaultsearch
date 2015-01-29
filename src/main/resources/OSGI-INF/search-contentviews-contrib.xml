@@ -29,10 +29,10 @@
           <predicate parameter="dc:creator" operator="IN">
             <field schema="default_search" name="dc_creator" />
           </predicate>
-          <predicate parameter="ubz:orgs" operator="IN">
+          <predicate parameter="ub:orgs" operator="IN">
             <field schema="default_search" name="ub_orgs" />
           </predicate>
-          <predicate parameter="ubu:doctypes" operator="IN">
+          <predicate parameter="ub:doctypes" operator="IN">
             <field schema="default_search" name="ub_doctypes" />
           </predicate>
           <predicate parameter="dc:created" operator="BETWEEN">
@@ -472,6 +472,64 @@
       </subWidgets>
     </widget>
 
+    <widget name="default_doctypes_search" type="container">
+      <handlingLabels>true</handlingLabels>
+      <labels>
+        <label mode="any">Document type</label>
+      </labels>
+      <translated>false</translated>
+      <properties widgetMode="any">
+        <property name="hideSubLabels">true</property>
+      </properties>
+      <subWidgets>
+        <widget name="ub_doctypes" type="suggestManyDirectory">
+          <fields>
+            <field>defaults:ub_doctypes</field>
+          </fields>
+          <widgetModes>
+            <mode value="edit">edit</mode>
+          </widgetModes>
+          <properties widgetMode="any">
+            <property name="directoryName">l10n_ub_doctypes</property>
+            <property name="dbl10n">true</property>
+            <property name="minChars">0</property>
+            <property name="hideHelpLabel">true</property>
+            <property name="filterParent">true</property>
+            <property name="canSelectParent">true</property>
+          </properties>
+        </widget>
+      </subWidgets>
+    </widget>
+
+    <widget name="default_orgs_search" type="container">
+      <handlingLabels>true</handlingLabels>
+      <labels>
+        <label mode="any">Organisation</label>
+      </labels>
+      <translated>false</translated>
+      <properties widgetMode="any">
+        <property name="hideSubLabels">true</property>
+      </properties>
+      <subWidgets>
+        <widget name="ub_orgs" type="suggestManyDirectory">
+          <fields>
+            <field>defaults:ub_orgs</field>
+          </fields>
+          <widgetModes>
+            <mode value="edit">edit</mode>
+          </widgetModes>
+          <properties widgetMode="any">
+            <property name="directoryName">l10n_ub_orgs</property>
+            <property name="dbl10n">true</property>
+            <property name="minChars">0</property>
+            <property name="hideHelpLabel">true</property>
+            <property name="filterParent">true</property>
+            <property name="canSelectParent">true</property>
+          </properties>
+        </widget>
+      </subWidgets>
+    </widget>
+
     <widget name="listing_size_and_format" type="container">
       <labels>
         <label mode="any">label.search.size_and_format</label>
@@ -525,10 +583,10 @@
           <widget>default_creator_search</widget>
         </row>
         <row>
-          <widget>doctypes</widget>
+          <widget>default_doctypes_search</widget>
         </row>
         <row>
-          <widget>orgs</widget>
+          <widget>default_orgs_search</widget>
         </row>
         <row>
           <widget>default_created_search</widget>
