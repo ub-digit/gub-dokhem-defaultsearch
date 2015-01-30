@@ -2,15 +2,23 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<groupId>se.gu.ub.dokhem</groupId>
+  <artifactId>gub-dokhem-defaultsearch</artifactId>
+  <packaging>jar</packaging>
+
+	<name>GUB Dokhem Default Search</name>
+	<description>Configuration plugin for GUB Nuxeo default Search.</description>
+  <url>http://digit.ub.gu.se/wiki/index.php/Dokhem</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <parent>
   	<groupId>org.nuxeo.ecm.platform</groupId>
     <artifactId>nuxeo-features-parent</artifactId>
     <version>6.0</version>
   </parent>
-
-	<artifactId>ub-search-form-config</artifactId>
-	<name>Search Form Configuration plugin for GU</name>
-	<description>Tweaking of search form fields in Nuxeo default Search.</description>
 
 	<dependencies>
 		<dependency>
